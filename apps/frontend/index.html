@@ -3,74 +3,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="styleindex.css" />
-    <title>AskAbhash</title>
+    <title>AskAbhash | AI Portfolio Assistant</title>
   </head>
   <body>
     <div id="searchModal" class="modal">
       <div class="modal-content">
         <div class="header-section">
-          <div class="chat-header">
-            Greetings! I am Abhash in a virtual world, and you can ask me
-            anything about my profile portfolio and life in general. For
-            example: "Show me your resume."
+          <div class="welcome-message">
+            <h1 class="greeting-title">Welcome! 👋</h1>
+            <p class="greeting-text">
+              I'm Abhash's AI assistant. Ask me anything about my portfolio, experience, projects, or skills. 
+              <span class="example-text">Try: "Tell me about your experience" or "Show me your resume"</span>
+            </p>
           </div>
           <div class="header-row">
             <div class="profile-card">
-              <img
-                src="media/1.JPG"
-                alt="Abhash's Photo"
-                class="profile-photo"
-              />
+              <div class="profile-photo-wrapper">
+                <img
+                  src="media/1.JPG"
+                  alt="Abhash Niroula"
+                  class="profile-photo"
+                />
+                <div class="status-indicator"></div>
+              </div>
               <div class="profile-info">
-                <h2>Abhash Niroula</h2>
-                <p>AI & Software Engineer</p>
-                <p>Location: Caldwell, NJ</p>
-                <div class="profile-links">
-                  <a
-                    href="https://www.linkedin.com/in/abhash-niroula-b9a468235/"
-                    target="_blank"
-                    >LinkedIn</a
-                  >
-                  <a href="https://github.com/abhashn8" target="_blank"
-                    >GitHub</a
-                  >
+                <div class="profile-name-row">
+                  <h2>Abhash Niroula</h2>
+                  <span class="profile-divider">•</span>
+                  <p class="profile-role">AI & Software Engineer</p>
+                </div>
+                <div class="profile-meta-row">
+                  <p class="profile-location">📍 Caldwell, NJ</p>
+                  <div class="profile-links">
+                    <a
+                      href="https://www.linkedin.com/in/abhash-niroula-b9a468235/"
+                      target="_blank"
+                      class="social-link linkedin"
+                      aria-label="LinkedIn"
+                      title="LinkedIn"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </a>
+                    <a 
+                      href="https://github.com/abhashn8" 
+                      target="_blank"
+                      class="social-link github"
+                      aria-label="GitHub"
+                      title="GitHub"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-            <button id="darkModeToggle" onclick="toggleDarkMode()">
-              Toggle Dark Mode
+            <button id="darkModeToggle" onclick="toggleDarkMode()" class="theme-toggle" aria-label="Toggle theme">
+              <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
             </button>
           </div>
         </div>
 
         <!-- Chat Section -->
         <div class="chat-section">
-          <div id="chatHistory" class="chat-history"></div>
+          <div id="chatHistory" class="chat-history">
+            <div class="chat-welcome">
+              <div class="welcome-icon">💬</div>
+              <p>Start a conversation by asking a question below!</p>
+            </div>
+          </div>
         </div>
 
         <div class="input-section">
-          <input type="text" id="userInput" placeholder="Ask me something..." />
-          <button
-            id="voiceButton"
-            onclick="startVoiceRecognition()"
-            class="voice-button"
-            title="Voice Input"
-          >
-            <img src="media/mic.png" , class="mic-icon" alt="" />
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="userInput" 
+              placeholder="Ask me something..." 
+              autocomplete="off"
+            />
+            <button
+              id="voiceButton"
+              onclick="startVoiceRecognition()"
+              class="voice-button"
+              title="Voice Input"
+              aria-label="Voice Input"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </button>
+          </div>
+          <button onclick="handleQuery()" class="search-button">
+            <span>Send</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
           </button>
-
-          <button onclick="handleQuery()" class="search-button">Search</button>
         </div>
 
         <!-- Action Buttons for common tasks -->
         <div class="action-buttons">
-          <button onclick="handleViewResume()">📄 View Resume</button>
-          <button onclick="handleVisitPortfolio()">🌐 Visit Portfolio</button>
+          <button onclick="handleViewResume()" class="action-btn resume-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            View Resume
+          </button>
+          <button onclick="handleVisitPortfolio()" class="action-btn portfolio-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            Visit Portfolio
+          </button>
         </div>
       </div>
     </div>
@@ -147,10 +225,18 @@
         if (!userInput) return;
 
         const chatHistoryDiv = document.getElementById("chatHistory");
+        
+        // Remove welcome message if it exists
+        const welcomeMsg = chatHistoryDiv.querySelector(".chat-welcome");
+        if (welcomeMsg) {
+          welcomeMsg.style.opacity = "0";
+          welcomeMsg.style.transform = "translateY(-10px)";
+          setTimeout(() => welcomeMsg.remove(), 300);
+        }
 
         // Append user message with fade-in animation.
         const userMessage = createMessageElement(
-          `<strong>You:</strong> ${userInput}`,
+          `<div class="message-content">${userInput}</div>`,
           ["user-message"]
         );
         chatHistoryDiv.appendChild(userMessage);
@@ -168,7 +254,7 @@
           "fade-in",
           "typing-indicator"
         );
-        typingIndicator.innerHTML = `<strong>Abhash:</strong> <span>is typing<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></span>`;
+        typingIndicator.innerHTML = `<div class="message-content"><span class="typing-text">Abhash is typing<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></span></div>`;
         chatHistoryDiv.appendChild(typingIndicator);
         scrollToBottom();
 
@@ -198,14 +284,14 @@
             // If the answer includes "download resume", display a download link.
             if (data.answer.includes("download resume")) {
               const downloadLink = createMessageElement(
-                `<strong>Abhash:</strong> <a href="https://pub-ebbe76c3985b4604b8d5d0885d75ccfd.r2.dev/Resume.pdf" target="_blank">Download Resume</a>`,
+                `<div class="message-content"><a href="https://pub-ebbe76c3985b4604b8d5d0885d75ccfd.r2.dev/Resume.pdf" target="_blank" class="resume-link">📄 Download Resume</a></div>`,
                 ["ai-message"]
               );
               chatHistoryDiv.appendChild(downloadLink);
             } else {
               // Otherwise, display the answer in the chat box.
               const aiMessage = createMessageElement(
-                `<strong>Abhash:</strong> ${data.answer}`,
+                `<div class="message-content">${data.answer}</div>`,
                 ["ai-message"]
               );
               chatHistoryDiv.appendChild(aiMessage);
@@ -217,8 +303,8 @@
             const indicator = document.getElementById("typingIndicator");
             if (indicator) chatHistoryDiv.removeChild(indicator);
             const errorMessage = createMessageElement(
-              `<strong>Abhash:</strong> Sorry, something went wrong.`,
-              ["ai-message"]
+              `<div class="message-content">Sorry, something went wrong. Please try again.</div>`,
+              ["ai-message", "error-message"]
             );
             chatHistoryDiv.appendChild(errorMessage);
             scrollToBottom();

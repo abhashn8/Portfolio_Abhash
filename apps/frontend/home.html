@@ -1,49 +1,63 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-    <title>Abhash Niroula's Portfolio</title>
+    <title>Abhash Niroula | Portfolio</title>
 </head>
 
 <body>
     
     <div class="wrapper">
-        <nav>
-            <h1>Abhash Niroula</h1>
-            <ul>
+        <nav class="sidebar-nav">
+            <div class="nav-header">
+                <h1>Abhash Niroula</h1>
+                <p class="nav-subtitle">AI & Software Engineer</p>
+            </div>
+            <ul class="nav-menu">
                 <li><a href="#home" onClick="return false;" class="active">Home</a></li>
                 <li><a href="#about" onClick="return false;">About Me</a></li>
                 <li><a href="#portfolio" onClick="return false;">Skills</a></li>
                 <li><a href="#projects" onClick="return false;">Projects</a></li>
                 <li><a href="#contact" onClick="return false;">Contact</a></li>
-
-
             </ul>
-
-            <p>&copy; 2025 Abhash Niroula</p>
-            <a href="https://www.linkedin.com/in/abhash-niroula/" target="blank" rel="noreferrer"
-                class="author">@abhashn_8</a>
+            <div class="nav-footer">
+                <p>&copy; 2025 Abhash Niroula</p>
+                <a href="https://www.linkedin.com/in/abhash-niroula/" target="blank" rel="noreferrer" class="nav-social">@abhashn_8</a>
+            </div>
         </nav>
         <main>
             <section class="home">
                 <div class="avatar">
-                    <img src="media/linkedin.jpg" />
+                    <div class="avatar-wrapper">
+                        <img src="media/linkedin.jpg" alt="Abhash Niroula" />
+                    </div>
                 </div>
                 <div class="content">
                     <h2>Who am I?</h2>
                     <p>
-                        Passionate about software engineering, I transitioned from Caldwell to William Paterson University with a 3.92 GPA. Beyond academics, my hands-on projects in Python, HTML, CSS, and JavaScript demonstrate my commitment to practical learning. As a former Teaching Assistant, instructing over 50 students at Caldwell University, I gained insights into effective coding comprehension. Actively seeking a Software Engineering Internship, I am eager to refine skills and tackle new challenges. I recently developed a Live cricket app, showcasing my proficiency in HTML, CSS, JS, and APIs, providing real-time updates for 20+ matches. Enthusiastic about contributing to innovative projects, I invite collaboration opportunities for growth.</p>
-                    <ul>
-                        <li>
-                            <a href="https://pub-ebbe76c3985b4604b8d5d0885d75ccfd.r2.dev/Resume.pdf" target="_blank" class="resume-button">View My Resume</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/abhashn8" target="_blank" rel="noreferrer">
-                                <img class ='png-imgs' src="media/github.png" alt="">
+                        Passionate about software engineering, I transitioned from Caldwell to William Paterson University with a 3.92 GPA. Beyond academics, my hands-on projects in Python, HTML, CSS, and JavaScript demonstrate my commitment to practical learning. As a former Teaching Assistant, instructing over 50 students at Caldwell University, I gained insights into effective coding comprehension. Actively seeking a Software Engineering Internship, I am eager to refine skills and tackle new challenges. I recently developed a Live cricket app, showcasing my proficiency in HTML, CSS, JS, and APIs, providing real-time updates for 20+ matches. Enthusiastic about contributing to innovative projects, I invite collaboration opportunities for growth.
+                    </p>
+                    <div class="action-links">
+                        <a href="https://pub-ebbe76c3985b4604b8d5d0885d75ccfd.r2.dev/Resume.pdf" target="_blank" class="resume-button">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                            View My Resume
+                        </a>
+                        <div class="social-icons">
+                            <a href="https://github.com/abhashn8" target="_blank" rel="noreferrer" class="social-icon" aria-label="GitHub">
+                                <img class="png-imgs" src="media/github.png" alt="GitHub">
                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 0 16 16" width="32">
                                     <path
                                         d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.
@@ -55,72 +69,21 @@
                             
                                   
                             </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/abhash-niroula/" target="_blank" rel="noreferrer">
-                                <img class ='png-imgs' src="media/linkedin.png" alt="">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path
-                                        d="M92 0C41.4 0 0 41.4 0 92s41.4 92 92 92h2.7H92c-49.6 0-90.6 41-90.6 90.6 0 15.8 3.9 30.7 10.7 43.6v.5h-.5 
-                                        3.8c-3.6 8.5-5.9 18-5.9 28.3C0 243.6 41.4 285 92 285h2.7h-.7 2.7C137.7 285 178 244.7 178 194.7c0-14.3-1.5-28.4-4.5-42H167c-6.5 
-                                        11.8-19.2 27.7-42 42h-.5H85c-44.3 0-80-35.7-80-80 0-44.3 35.7-80 80-80h8.3h-.8H92c50.6 0 91.3 40.7 91.3 91.3 0 51.1-41.4 92.6-92.6 
-                                        92.6h-2.7h.8-2.7C44.3 296 4 335.3 4 384.7c0 44.1 36 79.3 80 79.3h8.3h.5H92c68.7 0 124.7-56 124.7-124.7 0-69.3-56.3-125.3-125.3-125.3z" />
-                                    <path
-                                        d="M308 130.5c-45.2 0-82 36.8-82 82 0 45.2 36.8 82 82 82s82-36.8
-                                        82-82c0-45.2-36.8-82-82-82zM272 272h-1.3H272c-29.4 0-53.3-23.9-53.3-53.3 0-28.5 
-                                        23.5-52 52-52s52 23.5 52 52c0 21.5-14.3 42.3-35.9 49.1v-.7H322z" />
-                                </svg> -->
+                            <a href="https://www.linkedin.com/in/abhash-niroula/" target="_blank" rel="noreferrer" class="social-icon" aria-label="LinkedIn">
+                                <img class="png-imgs" src="media/linkedin.png" alt="LinkedIn">
                             </a>
-
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/meabhash789" target="_blank" rel="noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="512"
-                                    viewBox="0 0 24 24" width="512">
-                                    <path
-                                        d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-3.159
-                                         0-5.323 1.987-5.323 5.639v3.361h-3.486v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877v-2.939c.001-1.233.333-2.077
-                                          2.051-2.077z">
-                                    </path>
-                                </svg>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://www.instagram.com/abhashn_8/" target="_blank" rel="noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.00096 512.00096">
-                                    <path
-                                        d="m373.40625 0h-234.8125c-76.421875 0-138.59375 62.171875-138.59375 
-                                        138.59375v234.816406c0 76.417969 62.171875 138.589844 138.59375
-                                         138.589844h234.816406c76.417969 0 138.589844-62.171875
-                                          138.589844-138.589844v-234.816406c0-76.421875-62.171875-138.59375-138.59375-138.59375zm-117.40625 395.996094c-77.195312 
-                                          0-139.996094-62.800782-139.996094-139.996094s62.800782-139.996094 139.996094-139.996094 139.996094 62.800782 139.996094 
-                                          139.996094-62.800782 139.996094-139.996094 139.996094zm143.34375-246.976563c-22.8125
-                                           0-41.367188-18.554687-41.367188-41.367187s18.554688-41.371094 41.367188-41.371094 41.371094 18.558594 41.371094
-                                            41.371094-18.558594 41.367187-41.371094 41.367187zm0 0">
-                                    </path>
-                                    <path
-                                        d="m256 146.019531c-60.640625 0-109.980469 49.335938-109.980469
-                                         109.980469 0 60.640625 49.339844 109.980469 109.980469 109.980469 60.644531
-                                          0 109.980469-49.339844 109.980469-109.980469 0-60.644531-49.335938-109.980469-109.980469-109.980469zm0 0">
-                                    </path>
-                                    <path
-                                        d="m399.34375 96.300781c-6.257812 0-11.351562 5.09375-11.351562 11.351563 0 6.257812 5.09375 11.351562
-                                         11.351562 11.351562 6.261719 0 11.355469-5.089844 11.355469-11.351562 0-6.261719-5.09375-11.351563-11.355469-11.351563zm0 0">
-                                    </path>
-                                </svg>
-                            </a>
-                        </li>
-
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="about">
-                <div class="large-image">
-                    <img src="media/linkedin.jpg" />
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="media/linkedin.jpg" alt="Abhash Niroula" />
+                    </div>
                 </div>
                 <div class="content">
-                    <h2>A <span>little</span> about me</h2>
+                    <h2>A little about me</h2>
                     <p>🚀 Have always wondered how a piece of code would make things work and here I am following my forever passion. Formerly at Caldwell University and currently at William Paterson University at a combined 3.92 GPA, my primary focus is software engineering.
 
                         👨‍💻 In addition to my academic pursuits, I engage in various projects focused on Python, HTML, CSS, and JavaScript.
@@ -138,57 +101,57 @@
             </section>
             <section class="portfolio">
                 <h2>My Skills</h2>
-                <div class="photos">
-                    <img src="media/a.png" />
-                    <img src="media/b.png" />
-                    <img src="media/c.png" />
-                    <img src="media/python.png" />
-
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <img src="media/a.png" alt="Skill" />
+                    </div>
+                    <div class="skill-item">
+                        <img src="media/b.png" alt="Skill" />
+                    </div>
+                    <div class="skill-item">
+                        <img src="media/c.png" alt="Skill" />
+                    </div>
+                    <div class="skill-item">
+                        <img src="media/python.png" alt="Python" />
+                    </div>
                 </div>
             </section>
             <section class="projects">
                 
             </section>
             <section class="contact">
-                <h2> Let's Get In Touch</h2>
-
-
-                <form action="#" method="post">
-                    <input type="text" placeholder="Name" />
-                    <input type="text" placeholder="Email" />
-                    <textarea placeholder="Message"></textarea>
-                    <button>Send Message</button>
-                </form>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.7193150088074!2d-74
-                    .27463902397378!3d40.834128530130116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!
-                    1s0x89c3aa7ed1bd9d0d%3A0xf9310128da194d24!2sCaldwell%20University!5e0!3m2!1sen!2sus!4v1697560476195!5m2!1sen!2sus"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </iframe>
+                <h2>Let's Get In Touch</h2>
+                <div class="contact-content">
+                    <form action="#" method="post" class="contact-form">
+                        <input type="text" placeholder="Name" required />
+                        <input type="email" placeholder="Email" required />
+                        <textarea placeholder="Message" rows="6" required></textarea>
+                        <button type="submit" class="submit-button">
+                            <span>Send Message</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.7193150088074!2d-74.27463902397378!3d40.834128530130116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3aa7ed1bd9d0d%3A0xf9310128da194d24!2sCaldwell%20University!5e0!3m2!1sen!2sus!4v1697560476195!5m2!1sen!2sus"
+                            width="100%" 
+                            height="450" 
+                            style="border:0; border-radius: 12px;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
             </section>
             
 
         </main>
     </div>
-    <script type="text/javascript" src="logic.js">
-        document.addEventListener('DOMContentLoaded', function () {
-    // Hide all sections initially
-    document.querySelectorAll("main section").forEach(section => {
-        section.style.display = 'none';
-    });
-
-    // Display the section if there's a hash in the URL
-    const hash = window.location.hash;
-    if (hash) {
-        const section = document.querySelector(hash);
-        if (section) {
-            section.style.display = 'flex'; // Display the matching section
-        }
-    }
-});
-
-    </script>
+    <script type="text/javascript" src="logic.js"></script>
 </body>
 
 </html>

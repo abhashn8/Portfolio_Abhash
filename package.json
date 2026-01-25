@@ -1,10 +1,15 @@
 {
   "name": "portfolio",
   "private": true,
-  "workspaces": ["apps/*"],
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "dev:backend": "npm --workspace apps/backend run dev",
     "start:backend": "npm --workspace apps/backend start",
     "dev:frontend": "npm --workspace apps/frontend run dev"
+  },
+  "dependencies": {
+    "hipaa-audit": "^1.0.6"
   }
 }

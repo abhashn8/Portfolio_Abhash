@@ -1,19 +1,21 @@
 {
   "name": "abhash_backend",
-  "type": "module",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "type": "module",
+  "description": "Backend for Abhash portfolio (Express + Firebase + OpenAI)",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18"
   },
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    "dev": "NODE_ENV=development node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "seed:resume": "node scripts/seedResumeChunks.mjs",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "axios": "^1.8.4",
-    "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.1",
