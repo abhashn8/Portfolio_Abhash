@@ -56,7 +56,7 @@ app.post("/api/askOpenAI", async (req, res) => {
     });
 
     const embedding = await getQueryEmbedding(userInput);
-    const chunks = await retrieveRelevantChunks(embedding, 3);
+    const chunks = await retrieveRelevantChunks(embedding);
     const prompt = buildPrompt(chunks, userInput);
     const answer = await generateAnswer(prompt);
 

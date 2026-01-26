@@ -26,7 +26,8 @@ function cosineSimilarity(vecA, vecB) {
   return dot / (nA * nB);
 }
 
-export async function retrieveRelevantChunks(queryEmbedding, topN = 3) {
+// Increased topN to 10 to provide more context to the LLM (since the resume is small)
+export async function retrieveRelevantChunks(queryEmbedding, topN = 10) {
   const db = getDb();
   const snap = await db.collection('profileChunks').get();
   const scored = [];
@@ -46,10 +47,11 @@ export function buildPrompt(chunks, userQuestion) {
 }
 
 export async function generateAnswer(prompt) {
+  const currentDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   const response = await openai.chat.completions.create({
     model: CHAT_MODEL,
     messages: [
-      { role: 'system', content: "You are Abhash Niroula (virtual). Use the provided context. Be kind, concise, and helpful." },
+      { role: 'system', content: `You are Abhash Niroula. Today is ${currentDate}. You are talking to a recruiter, engineer, or visitor on your portfolio website. Answer in the first person (using 'I', 'me', 'my'). Use the provided context to answer questions about your experience, skills, and projects as if you are Abhash himself. Be professional, enthusiastic, and confident. Do not mention you are an AI unless explicitly asked. If the context is missing, say 'I don't recall that specific detail right now' instead of 'The context doesn't say'.` },
       { role: 'user', content: prompt }
     ],
     temperature: 0.5,
