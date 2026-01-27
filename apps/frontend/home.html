@@ -26,6 +26,7 @@
                 <li><a href="#about" onClick="return false;">About Me</a></li>
                 <li><a href="#portfolio" onClick="return false;">Skills</a></li>
                 <li><a href="#projects" onClick="return false;">Projects</a></li>
+                <li><a href="#beyond" onClick="return false;">Beyond Code</a></li>
                 <li><a href="#contact" onClick="return false;">Contact</a></li>
             </ul>
             <div class="nav-footer">
@@ -182,6 +183,43 @@
                     </div>
                 </div>
             </section>
+            <section class="beyond" id="beyond">
+                <h2>Beyond the Code</h2>
+                <p class="section-subtitle">There's more to me than just programming!</p>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon">🏏</div>
+                        <h3>Cricket Captain</h3>
+                        <p>Led my high school team to a District Championship in Nepal. Still play whenever I can!</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">⚽</div>
+                        <h3>Messi Fan</h3>
+                        <p>Die-hard football fan - I've actually seen Messi play live! Play soccer every week.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🎵</div>
+                        <h3>Concert Lover</h3>
+                        <p>Post Malone, Ed Sheeran, Luke Combs - I've been to all their concerts. Music is life.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🥾</div>
+                        <h3>Hiking Enthusiast</h3>
+                        <p>Explored High Point, Delaware Water Gap, Ithaca, and the Catskills. Always looking for the next trail!</p>
+                    </div>
+                </div>
+                <div class="fun-facts">
+                    <h3>Quick Facts</h3>
+                    <div class="facts-list">
+                        <span class="fact-tag">🇳🇵 From Nepal</span>
+                        <span class="fact-tag">📍 Based in NJ</span>
+                        <span class="fact-tag">☕ Coffee > Tea</span>
+                        <span class="fact-tag">🎮 Casual Gamer</span>
+                        <span class="fact-tag">🤝 Community Volunteer</span>
+                        <span class="fact-tag">📚 Always Learning</span>
+                    </div>
+                </div>
+            </section>
             <section class="contact">
                 <h2>Let's Get In Touch</h2>
                 <div class="contact-content">
@@ -214,7 +252,43 @@
 
         </main>
     </div>
+    <!-- Floating Chat Button -->
+    <a href="index.html" class="floating-chat-btn" title="Chat with me!">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="chat-btn-text">Ask me anything!</span>
+    </a>
+
     <script type="text/javascript" src="logic.js"></script>
+
+    <!-- Scroll Reveal Animation -->
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementsToAnimate = document.querySelectorAll('.skill-category, .project-card, .about .content p, .contact-form, .map-container, .interest-card, .fun-facts');
+            elementsToAnimate.forEach(el => {
+                el.classList.add('reveal-on-scroll');
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 
 </html>

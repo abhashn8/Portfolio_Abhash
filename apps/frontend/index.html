@@ -91,9 +91,29 @@
         <div class="chat-section">
           <div id="chatHistory" class="chat-history">
             <div class="chat-welcome">
-              <div class="welcome-icon">💬</div>
-              <p>Start a conversation with me!</p>
+              <div class="welcome-avatar">
+                <img src="media/1.JPG" alt="Abhash" />
+                <div class="avatar-wave">👋</div>
+              </div>
+              <p class="welcome-intro">Hey there! I'm Abhash.</p>
+              <p class="welcome-sub">Ask me anything about my journey, skills, or just say hi!</p>
             </div>
+          </div>
+
+          <!-- Suggestion Chips -->
+          <div class="suggestion-chips" id="suggestionChips">
+            <button class="chip" onclick="askSuggestion('What are you currently working on?')">
+              <span class="chip-icon">💼</span> Current work
+            </button>
+            <button class="chip" onclick="askSuggestion('Tell me about your skills')">
+              <span class="chip-icon">🛠️</span> Skills
+            </button>
+            <button class="chip" onclick="askSuggestion('What projects have you built?')">
+              <span class="chip-icon">🚀</span> Projects
+            </button>
+            <button class="chip" onclick="askSuggestion('What do you do for fun?')">
+              <span class="chip-icon">🎯</span> Interests
+            </button>
           </div>
         </div>
 
@@ -157,6 +177,19 @@
       // Toggle Dark Mode
       function toggleDarkMode() {
         document.body.classList.toggle("dark-mode");
+      }
+
+      // Handle suggestion chip click
+      function askSuggestion(question) {
+        document.getElementById("userInput").value = question;
+        handleQuery();
+        // Hide chips after first use
+        const chips = document.getElementById("suggestionChips");
+        if (chips) {
+          chips.style.opacity = "0";
+          chips.style.transform = "translateY(10px)";
+          setTimeout(() => chips.remove(), 300);
+        }
       }
 
       // Auto-scroll function
@@ -225,13 +258,21 @@
         if (!userInput) return;
 
         const chatHistoryDiv = document.getElementById("chatHistory");
-        
+
         // Remove welcome message if it exists
         const welcomeMsg = chatHistoryDiv.querySelector(".chat-welcome");
         if (welcomeMsg) {
           welcomeMsg.style.opacity = "0";
           welcomeMsg.style.transform = "translateY(-10px)";
           setTimeout(() => welcomeMsg.remove(), 300);
+        }
+
+        // Hide suggestion chips
+        const chips = document.getElementById("suggestionChips");
+        if (chips) {
+          chips.style.opacity = "0";
+          chips.style.transform = "translateY(10px)";
+          setTimeout(() => chips.remove(), 300);
         }
 
         // Append user message with fade-in animation.
