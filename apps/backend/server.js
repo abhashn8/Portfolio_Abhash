@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import helmet from "helmet";
 import { getDb } from "./firebaseAdmin.mjs";
 import {
   getQueryEmbedding,
@@ -11,6 +12,35 @@ import {
 
 const app = express();
 const db = getDb();
+
+// ============================================
+// SECURITY: Allowed Origins (CORS)
+// ============================================
+const ALLOWED_ORIGINS = [
+  'https://niroulaabhash.com.np',
+  'https://www.niroulaabhash.com.np',
+  'http://localhost:3000',
+  'http://localhost:5500',
+  'http://127.0.0.1:5500',
+  // Add your Vercel/Netlify preview URLs if needed
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, Postman, etc.) in development
+    if (!origin && process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+  maxAge: 86400, // 24 hours
+};
 
 // ============================================
 // SECURITY: Rate Limiting (In-Memory Store)
@@ -181,11 +211,45 @@ function inputValidationMiddleware(req, res, next) {
 // ============================================
 // MIDDLEWARE SETUP
 // ============================================
-app.use(express.json({ limit: '10kb' })); // Limit payload size
-app.use(cors());
+
+// Security headers
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", "data:", "https:"],
+    },
+  },
+  crossOriginEmbedderPolicy: false,
+}));
+
+// CORS with origin restrictions
+app.use(cors(corsOptions));
+
+// Limit payload size
+app.use(express.json({ limit: '10kb' }));
 
 // Trust proxy for accurate IP detection (important for rate limiting)
 app.set('trust proxy', 1);
+
+// Block suspicious user agents
+app.use((req, res, next) => {
+  const userAgent = req.get('User-Agent') || '';
+  const suspiciousAgents = ['curl', 'wget', 'python-requests', 'httpie', 'postman'];
+
+  // Only block in production, allow for development/testing
+  if (process.env.NODE_ENV === 'production') {
+    const isSuspicious = suspiciousAgents.some(agent =>
+      userAgent.toLowerCase().includes(agent)
+    );
+    if (isSuspicious && req.path.includes('/api/askOpenAI')) {
+      return res.status(403).json({ error: 'Access denied' });
+    }
+  }
+  next();
+});
 
 // ============================================
 // ROUTES
