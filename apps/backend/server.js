@@ -27,18 +27,27 @@ const ALLOWED_ORIGINS = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (mobile apps, Postman, etc.) in development
-    if (!origin && process.env.NODE_ENV !== 'production') {
+    // In production, ALWAYS require origin and check against whitelist
+    if (process.env.NODE_ENV === 'production') {
+      if (!origin) {
+        // Block requests with no origin in production (server-to-server, curl, etc.)
+        return callback(new Error('Origin required'));
+      }
+      if (ALLOWED_ORIGINS.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error('Not allowed by CORS'));
+    }
+
+    // In development, allow requests for testing
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) {
       return callback(null, true);
     }
-    if (!origin || ALLOWED_ORIGINS.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
+    callback(new Error('Not allowed by CORS'));
   },
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
+  credentials: false,
   maxAge: 86400, // 24 hours
 };
 
@@ -275,8 +284,26 @@ app.get("/api/test-firestore", async (_req, res) => {
   }
 });
 
+// Additional origin verification middleware
+function verifyOrigin(req, res, next) {
+  const origin = req.get('Origin') || req.get('Referer') || '';
+
+  // In production, strictly verify origin
+  if (process.env.NODE_ENV === 'production') {
+    const isAllowed = ALLOWED_ORIGINS.some(allowed =>
+      origin.startsWith(allowed)
+    );
+    if (!isAllowed) {
+      return res.status(403).json({
+        answer: "Access denied. This API is only accessible from authorized domains."
+      });
+    }
+  }
+  next();
+}
+
 // Q&A (RAG) - Protected endpoint
-app.post("/api/askOpenAI", rateLimitMiddleware, inputValidationMiddleware, async (req, res) => {
+app.post("/api/askOpenAI", verifyOrigin, rateLimitMiddleware, inputValidationMiddleware, async (req, res) => {
   try {
     const userInput = String(req.body?.question || "").trim();
 
