@@ -375,7 +375,7 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: "An unexpected error occurred" });
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () =>
   console.log(`Server running at http://localhost:${port}`)
 );

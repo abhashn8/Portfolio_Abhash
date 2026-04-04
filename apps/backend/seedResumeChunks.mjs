@@ -32,8 +32,8 @@ if (resumeData.education) {
 }
 
 if (resumeData.technicalSkills) {
-  const { languages, frameworksAndTools, aiMl, platforms } = resumeData.technicalSkills;
-  const skillsText = `Languages: ${languages}. Frameworks & Tools: ${frameworksAndTools}. AI/ML: ${aiMl}. Platforms: ${platforms}.`;
+  const { languages, frameworksAndTools, aiMl, cloudAndPlatforms } = resumeData.technicalSkills;
+  const skillsText = `Languages: ${languages}. Frameworks & Tools: ${frameworksAndTools}. AI/ML: ${aiMl}. Cloud & Platforms: ${cloudAndPlatforms || ''}.`;
   chunks.push({
     text: `Technical Skills: ${skillsText}`,
     meta: { type: "technicalSkills" },
@@ -41,15 +41,38 @@ if (resumeData.technicalSkills) {
 }
 
 if (resumeData.certifications) {
-    chunks.push({
-    text: `Certifications: ${resumeData.certifications}`,
+  const certText = Array.isArray(resumeData.certifications)
+    ? resumeData.certifications.join(', ')
+    : resumeData.certifications;
+  chunks.push({
+    text: `Certifications: ${certText}`,
     meta: { type: "certifications" },
-    });
+  });
 }
 
-resumeData.professionalExperience?.forEach((exp, i) => {
+if (resumeData.leadership) {
+  const leaderText = Array.isArray(resumeData.leadership)
+    ? resumeData.leadership.join('; ')
+    : resumeData.leadership;
   chunks.push({
-    text: `Professional Experience: ${exp.role} at ${exp.company}, ${exp.location} (${exp.duration}). ${exp.description}`,
+    text: `Leadership: ${leaderText}`,
+    meta: { type: "leadership" },
+  });
+}
+
+resumeData.publications?.forEach((pub, i) => {
+  chunks.push({
+    text: `Publication: "${pub.title}" by ${pub.authors}. Published at ${pub.venue}, ${pub.publisher} (${pub.indexing}). ${pub.date}.`,
+    meta: { type: "publication", index: i },
+  });
+});
+
+resumeData.professionalExperience?.forEach((exp, i) => {
+  const desc = exp.bullets
+    ? exp.bullets.join(' ')
+    : (exp.description || '');
+  chunks.push({
+    text: `Professional Experience: ${exp.role} at ${exp.company}, ${exp.location} (${exp.duration}). ${desc}`,
     meta: { type: "experience", index: i },
   });
 });

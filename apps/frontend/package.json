@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "npx serve . -p 5500"
+  },
   "dependencies": {
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.5",

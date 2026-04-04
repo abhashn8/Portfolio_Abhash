@@ -2,63 +2,94 @@
   "name": "Abhash Niroula",
   "contact": {
     "email": "abhashniroula8@gmail.com",
-    "phone": "+1 6467534127",
+    "phone": "+1 646-753-4127",
     "linkedin": "https://www.linkedin.com/in/abhash-niroula/",
     "github": "https://github.com/abhashn8",
-    "website": "http://niroulaabhash.com.mp"
+    "website": "https://niroulaabhash.com.np"
   },
   "education": {
-    "degree": "Bachelor of Science, Computer Science (Honors)",
+    "degree": "Bachelor of Science, Computer Science (Minor: Cognitive Science)",
     "institution": "William Paterson University",
     "location": "Wayne, NJ",
     "graduation": "Expected May 2026",
-    "honors": "CGPA: 3.9, Dean’s list (All semesters), Presidential Scholarship, Honors College",
-    "activities": "CS Club Treasurer, Hackathons (Hack Princeton, Hack Harvard)",
-    "coursework": "Data Structures and Algorithms, Software Engineering, Operating Systems, OOP, Computer Programming, Database Management Systems, Web Development, Cloud Computing, Statistics, Calculus I & II"
+    "gpa": "3.9",
+    "honors": "Dean's List (2024, 2025), Presidential Scholarship, Honors College",
+    "activities": "CS Club Treasurer, Hackathons (HackPrinceton, HackHarvard)",
+    "coursework": "Data Structures & Algorithms, Software Engineering, System Design, Operating Systems, Database Management Systems, Cloud Computing"
   },
+  "publications": [
+    {
+      "title": "Adversarial Robustness of Deep Learning Models for Skin Cancer Diagnosis: Evaluating Clinical Deployment Risks",
+      "authors": "Bikesh Regmi, Abhash Niroula, Sachin Parajuli, Kofi Nyarko",
+      "venue": "CAC 2026 — International Conference on Applied Computing",
+      "publisher": "Springer Nature",
+      "indexing": "Scopus Indexed",
+      "date": "April 2026, Las Vegas"
+    }
+  ],
   "technicalSkills": {
-    "languages": "Python, JavaScript, SQL, Swift, EJS, HTML/CSS",
-    "frameworksAndTools": "FastAPI, Node.js, PostgreSQL, Langchain, Supabase, Firebase, Docker",
-    "aiMl": "NLP, Prompt Engineering, Gen AI, LLM Integration & Automation, Vector Databases, RAG, Chatbot Development, OpenAI API",
-    "platforms": "GCP, GitHub, Xcode",
-    "os": "Windows, macOS, Linux"
+    "languages": "Python, TypeScript, JavaScript, EJS, SQL, HTML, CSS",
+    "aiMl": "LLMs, RAG, NLP, Prompt Engineering, Vector Databases, LangChain, OpenAI SDK, Firebase Vector Search",
+    "frameworksAndTools": "FastAPI, Node.js, Next.js, React, PostgreSQL, Firebase, Supabase, shadcn/ui, Tailwind CSS, Vercel, Docker, scikit-learn",
+    "cloudAndPlatforms": "Google Cloud Platform (GCP), GitHub, Git, REST APIs"
   },
+  "certifications": [
+    "AWS Certified AI Practitioner",
+    "Google Intermediate Generative AI"
+  ],
+  "leadership": [
+    "Dean's List — William Paterson University (2024, 2025) — Awarded for achieving a 3.45+ GPA for all years",
+    "CS Club Treasurer",
+    "Hackathons (HackPrinceton, HackHarvard)"
+  ],
   "professionalExperience": [
     {
-      "role": "AI Founding Engineer Intern (Startup)",
-      "company": "Humanity AI",
+      "role": "AI Founding Engineer Intern",
+      "company": "HumanityAi",
       "location": "Upper Montclair, NJ",
       "duration": "Oct 2024 – Present",
-      "description": "Developed and supported multiple AI-driven products, including a conversational chatbot that uses retrieval-augmented generation (RAG) and dynamically routes questions to the most appropriate LLM based on query type. Integrated and evaluated multiple AI APIs, improving response accuracy by 35%. Built and optimized backend pipelines using PostgreSQL, Supabase, and GCP to support document ingestion, storage, and retrieval. Improved system performance and user experience through iterative pipeline and UX optimizations, increasing engagement by 40%."
+      "bullets": [
+        "Built a dynamic weight-based routing system that benchmarked GPT-4, Claude 3, and Gemini in real-time, automatically selecting the highest-performing model per query based on response quality scoring.",
+        "Building Transactable, an AI-powered financial assistant using React, TypeScript, Supabase, and Claude AI that processes receipts, bank statements, and CSVs through OCR and natural language analysis, making financial statements easier to understand."
+      ]
     },
     {
-      "role": "Software Engineer Intern",
+      "role": "Full-Stack Engineer",
       "company": "William Paterson University",
       "location": "Wayne, NJ",
-      "duration": "Mar 2024 – May 2024",
-      "description": "Built a responsive club portal, increasing engagement by 50% and automating 70% of manual work. Implemented real-time backend logic, enhancing reliability for 100+ users."
+      "duration": "Jan 2026 – Present",
+      "bullets": [
+        "Built a full-stack event judging platform (Next.js 14, TypeScript, Supabase, Tailwind CSS) with passwordless magic-link auth, customizable weighted rubrics, and a draft-and-lock scoring workflow for hackathons and competitions.",
+        "Implemented real-time judge progress monitoring, CSV bulk participant import, and automated score aggregation with leaderboard export, replacing manual JotForm/Qualtrics workflows and cutting aggregation from hours to under a minute."
+      ]
+    },
+    {
+      "role": "Software Engineer Intern — Student Club Portal",
+      "company": "William Paterson University",
+      "location": "Wayne, NJ",
+      "duration": "March 2025 – May 2025",
+      "bullets": [
+        "Engineered a full-stack student organization portal serving 100+ campus clubs, automating event approvals, member registration, and announcements workflows using Node.js and PostgreSQL.",
+        "Onboarded 45+ clubs within the project timeline through responsive UI/UX design and role-based access control."
+      ]
     }
   ],
   "technicalProjects": [
     {
-      "name": "Scanara AI",
-      "technologies": "React, Node.js, Firebase, Google Gemini API, VS Code Extension, npm",
-      "date": "Nov 2025",
-      "description": "Developed a multi-platform tool that audits applications for HIPAA compliance and generates detailed AI-powered reports. Implemented secure authentication, real-time syncing, and weighted scoring to enhance audit reliability by 40%."
+      "name": "Passaic360",
+      "technologies": "Next.js, Express, Supabase (PostgreSQL), TypeScript, Anthropic API, SerpAPI, Google Places",
+      "description": "Built a full-stack social services platform for Passaic County, NJ with role-based dashboards (resident, employer, admin), timesheet tracking with image uploads, and volunteer matching across 40+ routes and 80+ components. Integrated AI-powered features using the Anthropic API, including a context-aware assistant for SNAP compliance, an admin analytics tool querying live database snapshots, and intelligent volunteer-opportunity matching. Implemented internationalization across 11 languages with locale-aware routing, along with external API integrations and secure authentication using Supabase OAuth and phone OTP."
     },
     {
-      "name": "AskAbhash",
-      "technologies": "Node.js, Express.js, OpenAI API, Firebase, Python, Streamlit",
-      "date": "Apr 2025 – Present",
-      "description": "Built an Express.js RAG chatbot with Firebase and OpenAI embeddings to serve portfolio data. Clustered user queries with DBSCAN to auto-generate dynamic FAQs via a REST API and Streamlit dashboard."
+      "name": "Pioscore",
+      "technologies": "Next.js, Supabase, TypeScript, Vercel, Postgres",
+      "description": "Engineered secure multi-tenant data architecture using Supabase RLS, normalized Postgres schema, environment-aware redirects, and rate limiting, deployed to production on Vercel. Built full-stack judging platform with magic-link auth, judge/admin dashboards, dynamic rubric editor, and live leaderboard, replacing manual scoring workflows end-to-end."
     },
     {
-      "name": "LetsCric",
-      "technologies": "HTML, CSS, JS",
-      "date": "Nov 2024",
-      "description": "Built a real-time cricket dashboard using Cricbuzz API to deliver live scores, match summaries, and news. Optimized data flow and load time, achieving a 30% performance improvement under high traffic."
+      "name": "AskAbhash — AI Digital Twin Chatbot",
+      "technologies": "Node.js, Express, OpenAI SDK, Firebase Firestore",
+      "description": "Implemented production RAG pipeline using Node.js, Express, OpenAI SDK, and Firebase Firestore vector search with DBSCAN clustering for behavioral analytics. Deployed conversational AI agent on personal portfolio (niroulaabhash.com.np) that answers recruiter questions in real-time using portfolio data."
     }
   ],
-  "certifications": "AWS Certified AI Practitioner, Intermediate GenAI (Google), Intro to iOS Development (CodePath)",
-  "resumeLink": "https://pub-ebbe76c3985b4604b8d5d0885d75ccfd.r2.dev/resume.pdf"
+  "resumeLink": "https://pub-ebbe76c3985b4604b8d5d0885d75ccfd.r2.dev/Abhash_Resume.pdf"
 }

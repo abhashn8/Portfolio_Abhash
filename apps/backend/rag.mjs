@@ -2,8 +2,17 @@ import 'dotenv/config';
 import { OpenAI } from 'openai';
 import { getDb } from './firebaseAdmin.mjs';
 
-// OpenAI client
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// OpenAI client (lazy-initialized so the server can start without the key)
+let _openai;
+function openai() {
+  if (!_openai) {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error('OPENAI_API_KEY environment variable is not set');
+    }
+    _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+  return _openai;
+}
 
 // Models (centralize names here)
 const EMBEDDING_MODEL = process.env.EMBEDDING_MODEL || 'text-embedding-3-small';
@@ -11,7 +20,7 @@ const CHAT_MODEL = process.env.CHAT_MODEL || 'gpt-4o-mini';
 
 // ---- Embeddings
 export async function getQueryEmbedding(query) {
-  const resp = await openai.embeddings.create({
+  const resp = await openai().embeddings.create({
     model: EMBEDDING_MODEL,
     input: query
   });
@@ -95,7 +104,7 @@ export async function generateAnswer(prompt) {
 
 Today's date: ${currentDate}`;
 
-  const response = await openai.chat.completions.create({
+  const response = await openai().chat.completions.create({
     model: CHAT_MODEL,
     messages: [
       { role: 'system', content: systemPrompt },

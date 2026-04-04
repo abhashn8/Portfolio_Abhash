@@ -5,6 +5,7 @@
     "apps/*"
   ],
   "scripts": {
+    "dev": "npm run dev:frontend",
     "dev:backend": "npm --workspace apps/backend run dev",
     "start:backend": "npm --workspace apps/backend start",
     "dev:frontend": "npm --workspace apps/frontend run dev"
