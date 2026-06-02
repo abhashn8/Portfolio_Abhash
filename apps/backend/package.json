@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "NODE_ENV=development node server.js",
     "start": "NODE_ENV=production node server.js",
-    "seed:resume": "node scripts/seedResumeChunks.mjs",
+    "seed:resume": "node seedResumeChunks.mjs",
     "test": "echo \"No tests yet\" && exit 0"
   },
   "license": "ISC",

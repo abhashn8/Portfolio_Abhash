@@ -20,7 +20,7 @@ if (resumeData.education) {
   const { degree, institution, location, graduation, honors, activities, coursework } =
     resumeData.education;
   chunks.push({
-    text: `${resumeData.name} education: ${degree} from ${institution} in ${location}. Expected Graduation: ${graduation}. Honors: ${honors}. Activities: ${activities}.`,
+    text: `${resumeData.name} education: ${degree} from ${institution} in ${location}. Graduation: ${graduation}. Honors: ${honors}. Activities: ${activities}.`,
     meta: { type: "education" },
   });
   if (coursework) {
@@ -123,6 +123,16 @@ if (resumeData.resumeLink) {
       input: text,
     });
     return r.data[0].embedding;
+  }
+
+  // Delete all existing documents in profileChunks before writing new ones
+  // (prevents stale chunks from lingering if the chunk count changes between seeds)
+  const existing = await db.collection("profileChunks").get();
+  if (!existing.empty) {
+    const batch = db.batch();
+    existing.docs.forEach((doc) => batch.delete(doc.ref));
+    await batch.commit();
+    console.log(`Cleared ${existing.size} existing chunks.`);
   }
 
   for (let i = 0; i < chunks.length; i++) {

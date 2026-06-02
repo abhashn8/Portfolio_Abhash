@@ -11,9 +11,9 @@
     "degree": "Bachelor of Science, Computer Science (Minor: Cognitive Science)",
     "institution": "William Paterson University",
     "location": "Wayne, NJ",
-    "graduation": "Expected May 2026",
-    "gpa": "3.9",
-    "honors": "Dean's List (2024, 2025), Presidential Scholarship, Honors College",
+    "graduation": "Graduated May 2026",
+    "gpa": "3.76",
+    "honors": "Dean's List (2024, 2025, 2026), Presidential Scholarship, Honors College",
     "activities": "CS Club Treasurer, Hackathons (HackPrinceton, HackHarvard)",
     "coursework": "Data Structures & Algorithms, Software Engineering, System Design, Operating Systems, Database Management Systems, Cloud Computing"
   },
@@ -38,13 +38,13 @@
     "Google Intermediate Generative AI"
   ],
   "leadership": [
-    "Dean's List — William Paterson University (2024, 2025) — Awarded for achieving a 3.45+ GPA for all years",
+    "Dean's List — William Paterson University (2024, 2025, 2026) — Awarded for achieving a 3.45+ GPA for all years",
     "CS Club Treasurer",
     "Hackathons (HackPrinceton, HackHarvard)"
   ],
   "professionalExperience": [
     {
-      "role": "AI Founding Engineer Intern",
+      "role": "AI Founding Engineer",
       "company": "HumanityAi",
       "location": "Upper Montclair, NJ",
       "duration": "Oct 2024 – Present",
@@ -57,7 +57,7 @@
       "role": "Full-Stack Engineer",
       "company": "William Paterson University",
       "location": "Wayne, NJ",
-      "duration": "Jan 2026 – Present",
+      "duration": "Jan 2026 – May 2026",
       "bullets": [
         "Built a full-stack event judging platform (Next.js 14, TypeScript, Supabase, Tailwind CSS) with passwordless magic-link auth, customizable weighted rubrics, and a draft-and-lock scoring workflow for hackathons and competitions.",
         "Implemented real-time judge progress monitoring, CSV bulk participant import, and automated score aggregation with leaderboard export, replacing manual JotForm/Qualtrics workflows and cutting aggregation from hours to under a minute."
@@ -78,16 +78,19 @@
     {
       "name": "Passaic360",
       "technologies": "Next.js, Express, Supabase (PostgreSQL), TypeScript, Anthropic API, SerpAPI, Google Places",
+      "link": "https://passaic360.app/",
       "description": "Built a full-stack social services platform for Passaic County, NJ with role-based dashboards (resident, employer, admin), timesheet tracking with image uploads, and volunteer matching across 40+ routes and 80+ components. Integrated AI-powered features using the Anthropic API, including a context-aware assistant for SNAP compliance, an admin analytics tool querying live database snapshots, and intelligent volunteer-opportunity matching. Implemented internationalization across 11 languages with locale-aware routing, along with external API integrations and secure authentication using Supabase OAuth and phone OTP."
     },
     {
       "name": "Pioscore",
       "technologies": "Next.js, Supabase, TypeScript, Vercel, Postgres",
+      "link": "https://www.pioscore.com/",
       "description": "Engineered secure multi-tenant data architecture using Supabase RLS, normalized Postgres schema, environment-aware redirects, and rate limiting, deployed to production on Vercel. Built full-stack judging platform with magic-link auth, judge/admin dashboards, dynamic rubric editor, and live leaderboard, replacing manual scoring workflows end-to-end."
     },
     {
       "name": "AskAbhash — AI Digital Twin Chatbot",
       "technologies": "Node.js, Express, OpenAI SDK, Firebase Firestore",
+      "link": "https://niroulaabhash.com.np/",
       "description": "Implemented production RAG pipeline using Node.js, Express, OpenAI SDK, and Firebase Firestore vector search with DBSCAN clustering for behavioral analytics. Deployed conversational AI agent on personal portfolio (niroulaabhash.com.np) that answers recruiter questions in real-time using portfolio data."
     }
   ],
